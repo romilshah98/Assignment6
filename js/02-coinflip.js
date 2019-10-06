@@ -1,28 +1,32 @@
 var coinFlip;
-coinFlip=Math.random();
-console.log(coinFlip);
-
+coinFlip = Math.round(Math.random());
 var choice;
-choice=window.prompt("Choose: Heads or Tails");
+choice = (window.prompt("Choose: Heads or Tails")).toLowerCase();
 var result;
-if (coinFlip<=0.5){
-    result="Heads"
-}
-else{
-    result="Tails"
-}
-if (result=="Heads" && choice=="Heads"){
-    window.alert("The flip was heads and you chose heads...you win!");
-}
+if (choice === "heads" || choice === "tails") {
+    if (coinFlip === 0) {
+        result = "heads"
+        if (choice === result) {
+            window.alert("The flip was heads and you chose heads...you win!");
+        }
 
-else if (result=="Heads" && choice=="Tails"){
-    window.alert("The flip was heads and you chose tails...you lose!");
-}
+        else {
+            window.alert("The flip was heads and you chose tails...you lose!");
+        }
 
-else if (result=="Tails" && choice=="Heads"){
-    window.alert("The flip was tails and you chose heads...you lose!");
-}
+    }
+    else if (coinFlip === 1) {
+        result = "tails"
+        if (choice === result) {
+            window.alert("The flip was tails and you chose tails...you win!");
 
-else{
-    window.alert("The flip was tails and you chose tails...you win!");
+        }
+        else {
+            window.alert("The flip was tails and you chose heads...you lose!");
+
+        }
+    }
+}
+else {
+    window.alert("Please Enter a valid choice: Heads or Tails.")
 }
